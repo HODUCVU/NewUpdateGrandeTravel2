@@ -1,0 +1,48 @@
+﻿@model GrandeTravel.ViewModels.ContactViewModel
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="bgIndex" class="container"> </div>
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="container-fluid" id="contactContent">
+
+    <div class="row">
+        <div class="jumbotron col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 class="text-capitalize text-center titanHeader">Vietnam Travel Contact</h2>
+            <form asp-action="Contact" asp-controller="Home" method="post" role="form" asp-anti-forgery="true">
+                <div>
+                    <p>Nếu bạn có thắc mắc, hãy gửi mail trực tiếp đến hoducvu1234@gmail.com hoặc có thể liên lạc với chúng tôi qua mẫu liên lạc bên dưới.</p>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FromAddress"></label>
+                    <input asp-for="FromAddress" class="form-control">
+                    <span class="text-danger" asp-validation-for="FromAddress"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Subject"></label>
+                    <input asp-for="Subject" class="form-control">
+                    <span class="text-danger" asp-validation-for="Subject"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Body"></label>
+                    <textarea asp-for="Body" class="form-control"></textarea>
+                    <span class="text-danger" asp-validation-for="Body"></span>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
